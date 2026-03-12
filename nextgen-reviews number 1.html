@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NextGen Reviews — Digital Services for Irish Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#111810;
+  --mid:#3d4a3f;
+  --muted:#7a8a7c;
+  --line:#e2e8e3;
+  --bg:#fafcfa;
+  --white:#ffffff;
+  --green:#1a6636;
+  --green-soft:#f0f7f2;
+  --accent:#2e8b57;
+  --gold:#b8962e;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 3rem;height:62px;
+  background:rgba(250,252,250,0.96);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+}
+.logo{display:flex;align-items:center;gap:.6rem;cursor:pointer;text-decoration:none}
+.logo-mark{
+  width:30px;height:30px;background:var(--green);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;color:white;flex-shrink:0
+}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--ink);letter-spacing:.01em}
+.logo-name span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:.3rem}
+.nav-link{
+  padding:.45rem 1rem;border:none;background:none;
+  font-family:'Jost',sans-serif;font-size:.83rem;font-weight:500;
+  color:var(--mid);cursor:pointer;border-radius:6px;
+  transition:background .15s,color .15s;letter-spacing:.02em
+}
+.nav-link:hover{background:var(--green-soft);color:var(--green)}
+.nav-link.active{color:var(--green);font-weight:600}
+.nav-cta{
+  padding:.45rem 1.2rem;background:var(--green);color:white;
+  border:none;border-radius:6px;font-family:'Jost',sans-serif;
+  font-size:.83rem;font-weight:600;cursor:pointer;
+  transition:background .15s,transform .15s;letter-spacing:.03em;
+  margin-left:.4rem
+}
+.nav-cta:hover{background:#155a2d;transform:translateY(-1px)}
+
+/* ── PAGES ── */
+.page{display:none;padding-top:62px}
+.page.show{display:block;min-height:100vh}
+
+/* ════════════════════════
+   PAGE 1 · HOME
+════════════════════════ */
+
+/* HERO */
+.hero{
+  padding:6rem 3rem 5rem;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+  max-width:1100px;margin:0 auto
+}
+.hero-left{}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:1.6rem
+}
+.hero-tag::before{content:'';width:20px;height:1.5px;background:var(--accent)}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,5vw,4.2rem);
+  font-weight:600;line-height:1.12;
+  color:var(--ink);margin-bottom:1.4rem
+}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{
+  font-size:1rem;line-height:1.85;color:var(--muted);
+  max-width:400px;margin-bottom:2.4rem
+}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-primary{
+  padding:.8rem 1.8rem;background:var(--green);color:white;
+  border:none;border-radius:8px;font-family:'Jost',sans-serif;
+  font-size:.88rem;font-weight:600;cursor:pointer;
+  transition:all .2s;display:inline-flex;align-items:center;gap:.45rem
+}
+.btn-primary:hover{background:#155a2d;transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,102,54,.25)}
+.btn-wa{
+  padding:.8rem 1.8rem;background:#25D366;color:white;
+  border:none;border-radius:8px;font-family:'Jost',sans-serif;
+  font-size:.88rem;font-weight:600;cursor:pointer;
+  transition:all .2s;display:inline-flex;align-items:center;gap:.45rem
+}
+.btn-wa:hover{background:#1db954;transform:translateY(-2px);box-shadow:0 8px 22px rgba(37,211,102,.3)}
+.btn-ghost{
+  padding:.8rem 1.8rem;background:transparent;color:var(--green);
+  border:1.5px solid var(--green);border-radius:8px;
+  font-family:'Jost',sans-serif;font-size:.88rem;font-weight:500;
+  cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:.45rem
+}
+.btn-ghost:hover{background:var(--green-soft)}
+
+/* Hero stats */
+.hero-stats{
+  margin-top:3rem;display:flex;gap:2rem;
+  padding-top:2rem;border-top:1px solid var(--line)
+}
+.hs{text-align:left}
+.hs-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--ink);line-height:1}
+.hs-l{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.3rem}
+
+/* Hero right — service preview cards */
+.hero-right{display:flex;flex-direction:column;gap:1rem}
+.svc-preview{
+  background:var(--white);border:1px solid var(--line);
+  border-radius:12px;padding:1.3rem 1.5rem;
+  display:flex;align-items:center;gap:1.1rem;
+  transition:all .25s;cursor:default
+}
+.svc-preview:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(46,139,87,.1);transform:translateX(4px)}
+.svc-preview-icon{
+  width:42px;height:42px;border-radius:9px;
+  background:var(--green-soft);display:flex;align-items:center;
+  justify-content:center;font-size:1.2rem;flex-shrink:0
+}
+.svc-preview-text h4{font-size:.92rem;font-weight:600;color:var(--ink);margin-bottom:.18rem}
+.svc-preview-text p{font-size:.8rem;color:var(--muted);line-height:1.4}
+.svc-preview-arrow{margin-left:auto;color:var(--line);font-size:.9rem;transition:color .2s}
+.svc-preview:hover .svc-preview-arrow{color:var(--accent)}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--line);max-width:1100px;margin:0 auto}
+
+/* SERVICES SECTION */
+.section{padding:5rem 3rem;max-width:1100px;margin:0 auto}
+.section-header{margin-bottom:3.5rem}
+.sec-tag{font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem}
+.sec-tag::before{content:'';width:20px;height:1.5px;background:var(--accent)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;color:var(--ink);line-height:1.2}
+.sec-title em{font-style:italic;color:var(--accent)}
+
+/* Services grid */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;background:var(--line)}
+.svc-item{
+  background:var(--bg);padding:2.8rem;
+  transition:background .2s
+}
+.svc-item:hover{background:var(--white)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);font-weight:600;margin-bottom:1.2rem;letter-spacing:.05em}
+.svc-icon-big{font-size:2rem;margin-bottom:1rem;display:block}
+.svc-item h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.7rem}
+.svc-item p{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.2rem}
+.svc-bullets{list-style:none}
+.svc-bullets li{font-size:.82rem;color:var(--mid);padding:.25rem 0;display:flex;align-items:center;gap:.5rem}
+.svc-bullets li::before{content:'→';color:var(--accent);font-size:.75rem;flex-shrink:0}
+
+/* PRICING */
+.pricing-bg{background:var(--ink)}
+.pricing-inner{padding:5rem 3rem;max-width:1100px;margin:0 auto}
+.pricing-inner .sec-tag{color:rgba(255,255,255,.45)}
+.pricing-inner .sec-tag::before{background:rgba(255,255,255,.3)}
+.pricing-inner .sec-title{color:white}
+.pricing-inner .sec-title em{color:#6fcf97}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.p-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:2.2rem;
+  transition:all .25s;position:relative;
+  display:flex;flex-direction:column;
+}
+.p-card:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
+.p-card.pop{background:var(--accent);border-color:var(--accent)}
+.p-card.pop:hover{background:#267a4c;transform:translateY(-3px)}
+.p-badge{
+  position:absolute;top:1rem;right:1rem;
+  background:var(--gold);color:var(--ink);
+  font-size:.65rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:.2rem .6rem;border-radius:20px
+}
+.p-plan{font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.8rem}
+.p-card.pop .p-plan{color:rgba(255,255,255,.75)}
+.p-price{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:white;line-height:1}
+.p-price sup{font-size:1.3rem;vertical-align:top;margin-top:.5rem}
+.p-price sub{font-family:'Jost',sans-serif;font-size:.78rem;font-weight:400;color:rgba(255,255,255,.4)}
+.p-desc{font-size:.82rem;color:rgba(255,255,255,.45);margin:.8rem 0 1.5rem;line-height:1.65}
+.p-card.pop .p-desc{color:rgba(255,255,255,.8)}
+.p-list{list-style:none;margin-bottom:1.8rem}
+.p-list li{font-size:.83rem;color:rgba(255,255,255,.65);padding:.48rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.5rem}
+.p-list li:last-child{border:none}
+.p-list li::before{content:'✓';color:rgba(255,255,255,.4);font-size:.75rem;flex-shrink:0}
+.p-card.pop .p-list li{color:rgba(255,255,255,.95)}
+.p-card.pop .p-list li::before{color:rgba(255,255,255,.7)}
+.p-btn{
+  display:block;width:100%;padding:.8rem;text-align:center;
+  border-radius:8px;font-family:'Jost',sans-serif;font-size:.85rem;
+  font-weight:600;cursor:pointer;transition:all .2s;
+  background:transparent;color:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.15);
+  position:relative;z-index:2;
+}
+.p-btn:hover{background:rgba(255,255,255,.1);color:white}
+.p-card.pop .p-btn{background:white;color:var(--accent);border-color:white}
+.p-card.pop .p-btn:hover{background:rgba(255,255,255,.9)}
+.p-icon-big{font-size:2rem;margin:.5rem 0 .8rem;display:block}
+.pricing-note{text-align:center;margin-top:2rem;font-size:.83rem;color:rgba(255,255,255,.3)}
+.pricing-note strong{color:rgba(255,255,255,.6);cursor:pointer;text-decoration:underline}
+
+/* WHY / TRUST */
+.trust-section{padding:5rem 3rem;max-width:1100px;margin:0 auto}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.trust-points{margin-top:2rem;display:flex;flex-direction:column;gap:1.8rem}
+.tp{display:flex;gap:1rem;align-items:flex-start}
+.tp-icon{
+  width:38px;height:38px;background:var(--green-soft);
+  border:1px solid rgba(46,139,87,.15);border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;margin-top:2px
+}
+.tp h4{font-size:.93rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}
+.tp p{font-size:.84rem;color:var(--muted);line-height:1.65}
+
+/* Review cards */
+.review-cards{display:flex;flex-direction:column;gap:1rem}
+.rc{
+  background:var(--white);border:1px solid var(--line);
+  border-radius:12px;padding:1.4rem 1.6rem;
+  transition:box-shadow .2s
+}
+.rc:hover{box-shadow:0 4px 20px rgba(0,0,0,.07)}
+.rc-stars{color:#e8a020;font-size:.78rem;margin-bottom:.5rem}
+.rc-text{font-size:.87rem;color:var(--mid);line-height:1.65;margin-bottom:.7rem;font-style:italic}
+.rc-author{font-size:.75rem;font-weight:600;color:var(--muted);letter-spacing:.04em}
+
+/* ════════════════════════
+   PAGE 2 · CONTACT
+════════════════════════ */
+.contact-page{background:var(--bg)}
+
+.c-hero{
+  background:var(--green);
+  padding:4.5rem 3rem;
+}
+.c-hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.c-hero h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:600;color:white;line-height:1.15;margin-bottom:1rem}
+.c-hero h2 em{font-style:italic;color:#a8efc8}
+.c-hero p{font-size:.95rem;color:rgba(255,255,255,.7);line-height:1.8}
+.c-hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
+.c-contacts{display:flex;flex-direction:column;gap:.9rem}
+.c-card{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  border-radius:10px;padding:1.1rem 1.4rem;
+  display:flex;align-items:center;gap:1rem;
+  cursor:pointer;transition:all .2s;text-decoration:none
+}
+.c-card:hover{background:rgba(255,255,255,.18);transform:translateX(3px)}
+.c-card-icon{font-size:1.3rem}
+.c-card-lbl{font-size:.68rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em}
+.c-card-val{font-size:.92rem;font-weight:600;color:white}
+.wa-pill{display:inline-block;background:rgba(37,211,102,.25);color:#a8ffc9;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.12rem .45rem;border-radius:4px;margin-left:.4rem}
+
+/* Contact form area */
+.c-body{padding:5rem 3rem;max-width:1100px;margin:0 auto}
+.c-body-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start}
+
+/* FAQ */
+.faq-block{margin-top:2.5rem}
+.faq-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem}
+.fq{border-bottom:1px solid var(--line);padding:.95rem 0;cursor:pointer}
+.fq-top{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.fq-q{font-size:.88rem;font-weight:600;color:var(--ink)}
+.fq-arr{font-size:.75rem;color:var(--accent);transition:transform .22s;flex-shrink:0}
+.fq.open .fq-arr{transform:rotate(180deg)}
+.fq-a{font-size:.83rem;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .28s ease,padding .28s}
+.fq.open .fq-a{max-height:150px;padding-top:.6rem}
+
+/* Form */
+.form-card{
+  background:var(--white);border:1px solid var(--line);
+  border-radius:16px;padding:2.4rem;
+  box-shadow:0 10px 40px rgba(0,0,0,.05)
+}
+.form-card-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.3rem}
+.form-card-sub{font-size:.83rem;color:var(--muted);margin-bottom:1.8rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:.78rem;font-weight:600;color:var(--mid);margin-bottom:.38rem;letter-spacing:.03em}
+.fg input,.fg select,.fg textarea{
+  width:100%;padding:.75rem .95rem;
+  border:1.5px solid var(--line);border-radius:8px;
+  font-family:'Jost',sans-serif;font-size:.88rem;
+  color:var(--ink);background:var(--bg);
+  transition:border-color .18s,box-shadow .18s;outline:none
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(46,139,87,.1);background:white}
+.fg textarea{height:100px;resize:vertical}
+.btn-send{
+  width:100%;padding:.88rem;background:var(--green);color:white;
+  border:none;border-radius:8px;font-family:'Jost',sans-serif;
+  font-size:.92rem;font-weight:600;cursor:pointer;
+  transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem
+}
+.btn-send:hover{background:#155a2d;transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,102,54,.25)}
+
+/* Success */
+.form-ok{display:none;text-align:center;padding:2.5rem 1rem}
+.form-ok .ok-icon{font-size:2.8rem;margin-bottom:1rem}
+.form-ok h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ink);margin-bottom:.5rem}
+.form-ok p{font-size:.87rem;color:var(--muted);line-height:1.7;margin-bottom:1.4rem}
+.btn-wa-full{
+  width:100%;padding:.85rem;background:#25D366;color:white;border:none;
+  border-radius:9px;font-family:'Jost',sans-serif;font-size:.9rem;
+  font-weight:600;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;gap:.5rem;transition:all .2s
+}
+.btn-wa-full:hover{background:#1db954;transform:translateY(-1px)}
+
+/* FOOTER */
+footer{
+  background:var(--ink);padding:2.5rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1.5rem
+}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.7)}
+.ft-logo span{color:#6fcf97}
+.ft-links{display:flex;gap:1.8rem;list-style:none}
+.ft-links a{font-size:.82rem;color:rgba(255,255,255,.4);cursor:pointer;transition:color .15s;text-decoration:none}
+.ft-links a:hover{color:rgba(255,255,255,.8)}
+footer p{font-size:.75rem;color:rgba(255,255,255,.25)}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.r.v{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  nav{padding:0 1.5rem}
+  .nav-link{display:none}
+  .hero,.section,.pricing-inner,.trust-section,.c-body{padding-left:1.5rem;padding-right:1.5rem}
+  .hero,.c-hero-inner,.c-body-grid,.trust-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .svc-grid,.pricing-grid{grid-template-columns:1fr}
+  .p-card.pop{transform:none}
+  .frow{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+  .ft-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo" onclick="go('home')">
+    <div class="logo-mark">☘</div>
+    <div class="logo-name">NextGen <span>Reviews</span></div>
+  </div>
+  <div class="nav-right">
+    <button class="nav-link active" id="nl-home" onclick="go('home')">Home</button>
+    <button class="nav-link" onclick="go('home');setTimeout(()=>scrollSec('sec-services'),150)">Services</button>
+    <button class="nav-link" onclick="go('home');setTimeout(()=>scrollSec('pricing-bg'),150)">Pricing</button>
+    <button class="nav-link" id="nl-contact" onclick="go('contact')">Contact</button>
+    <button class="nav-cta" onclick="wa()">💬 WhatsApp</button>
+  </div>
+</nav>
+
+<!-- ══════════ PAGE: HOME ══════════ -->
+<div class="page show" id="pg-home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Irish Digital Agency</div>
+      <h1>Your Business<br>Deserves to<br><em>Stand Out</em></h1>
+      <p class="hero-sub">We help Irish businesses grow online — through websites, Google reputation management, and cinematic AI video production. Simple, effective, and built around your goals.</p>
+      <div class="hero-btns">
+        <button class="btn-wa" onclick="wa()">💬 WhatsApp Us</button>
+        <button class="btn-ghost" onclick="go('contact')">Get a Free Quote</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><div class="hs-n">200+</div><div class="hs-l">Clients Helped</div></div>
+        <div class="hs"><div class="hs-n">5 ★</div><div class="hs-l">Google Rating</div></div>
+        <div class="hs"><div class="hs-n">24h</div><div class="hs-l">Response Time</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="svc-preview"><div class="svc-preview-icon">🌐</div><div class="svc-preview-text"><h4>Website Design</h4><p>Fast, modern, mobile-ready sites</p></div><span class="svc-preview-arrow">→</span></div>
+      <div class="svc-preview"><div class="svc-preview-icon">⭐</div><div class="svc-preview-text"><h4>Google Review Replies</h4><p>Professional reputation management</p></div><span class="svc-preview-arrow">→</span></div>
+      <div class="svc-preview"><div class="svc-preview-icon">🎬</div><div class="svc-preview-text"><h4>AI Video Production</h4><p>Cinematic AI advertisement videos</p></div><span class="svc-preview-arrow">→</span></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <div class="section" id="sec-services">
+    <div class="section-header r">
+      <div class="sec-tag">Our Services</div>
+      <div class="sec-title">Everything your business<br>needs to grow <em>online</em></div>
+    </div>
+    <div class="svc-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="svc-item r">
+        <div class="svc-num">01</div>
+        <span class="svc-icon-big">🌐</span>
+        <h3>Website Design</h3>
+        <p>A great website is your most valuable business asset. We build clean, fast, and conversion-focused websites that work hard for your business 24/7.</p>
+        <ul class="svc-bullets">
+          <li>Custom design for your brand</li>
+          <li>Mobile-first &amp; blazing fast</li>
+          <li>SEO foundations built in</li>
+          <li>Contact forms &amp; booking ready</li>
+        </ul>
+      </div>
+      <div class="svc-item r">
+        <div class="svc-num">02</div>
+        <span class="svc-icon-big">⭐</span>
+        <h3>Google Review Replies</h3>
+        <p>How you respond to reviews shapes how new customers see you. We craft thoughtful, professional replies that build trust and show you care.</p>
+        <ul class="svc-bullets">
+          <li>Responses to every review</li>
+          <li>Handle negative feedback well</li>
+          <li>Improve your local SEO ranking</li>
+          <li>Build customer confidence</li>
+        </ul>
+      </div>
+      <div class="svc-item r">
+        <div class="svc-num">03</div>
+        <span class="svc-icon-big">🎬</span>
+        <h3>AI Video Production</h3>
+        <p>Cinematic advertisement videos made with the latest AI technology — stunning visuals, professional voiceovers, and compelling storytelling at a fraction of traditional costs.</p>
+        <ul class="svc-bullets">
+          <li>Cinematic AI-generated visuals</li>
+          <li>Professional script &amp; voiceover</li>
+          <li>Ready for Instagram, Facebook &amp; YouTube</li>
+          <li>Faster &amp; more affordable than traditional video</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pricing-bg" id="pricing-bg">
+    <div class="pricing-inner">
+      <div class="sec-tag r">Pricing</div>
+      <div class="sec-title r" style="color:white">Simple, honest pricing.<br><em>Pick what you need.</em></div>
+
+      <!-- Individual Services -->
+      <div class="pricing-grid" style="margin-top:3rem">
+
+        <div class="p-card">
+          <div class="p-plan">Website Design</div>
+          <div class="p-icon-big">🌐</div>
+          <div class="p-price"><sup>€</sup>500<sub style="font-size:.78rem;font-weight:400;color:rgba(255,255,255,.4);font-family:'Jost',sans-serif"> one-time</sub></div>
+          <p class="p-desc">A custom, mobile-first website built and delivered in 5–7 days. Yours forever.</p>
+          <ul class="p-list">
+            <li>Custom design for your brand</li>
+            <li>Mobile-first &amp; fast</li>
+            <li>SEO foundations built in</li>
+            <li>Contact forms &amp; booking ready</li>
+            <li>Optional maintenance €100–€200/mo</li>
+          </ul>
+          <button class="p-btn" onclick="go('contact')">Get Your Website</button>
+        </div>
+
+        <div class="p-card">
+          <div class="p-plan">Google Review Replies</div>
+          <div class="p-icon-big">⭐</div>
+          <div class="p-price"><sup>€</sup>199<sub>/mo</sub></div>
+          <p class="p-desc">Professional replies to every Google review. Build trust and boost your local SEO.</p>
+          <ul class="p-list">
+            <li>Replies to every review</li>
+            <li>Handles negative feedback professionally</li>
+            <li>Improves local SEO ranking</li>
+            <li>Builds customer confidence</li>
+            <li>Monthly rolling — cancel any time</li>
+          </ul>
+          <button class="p-btn" onclick="go('contact')">Get Started</button>
+        </div>
+
+        <div class="p-card">
+          <div class="p-plan">AI Video Production</div>
+          <div class="p-icon-big">🎬</div>
+          <div class="p-price"><sup>€</sup>300<sub>/mo</sub></div>
+          <p class="p-desc">Cinematic AI advertisement videos ready for Instagram, Facebook and YouTube.</p>
+          <ul class="p-list">
+            <li>Cinematic AI-generated visuals</li>
+            <li>Professional script &amp; voiceover</li>
+            <li>Ready for all social platforms</li>
+            <li>Fraction of traditional video cost</li>
+            <li>Monthly rolling — cancel any time</li>
+          </ul>
+          <button class="p-btn" onclick="go('contact')">Get Started</button>
+        </div>
+
+      </div>
+
+      <!-- Full Package -->
+      <div style="margin-top:2rem">
+        <div class="p-card pop" style="max-width:700px;margin:0 auto;padding:2.5rem">
+          <div class="p-badge">⭐ Best Value</div>
+          <div class="p-plan" style="margin-bottom:.5rem">Full Package — All 3 Services</div>
+          <div style="display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem">
+            <div class="p-price"><sup>€</sup>500<sub style="font-family:'Jost',sans-serif;font-size:.78rem;font-weight:400;color:rgba(255,255,255,.7)"> one-time</sub></div>
+            <div style="font-family:'Jost',sans-serif;font-size:.9rem;color:rgba(255,255,255,.8)">+ <strong style="color:white">€499/mo</strong> <span style="color:rgba(255,255,255,.6);text-decoration:line-through;font-size:.8rem">€499</span> <span style="background:var(--gold);color:var(--ink);font-size:.65rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;margin-left:.3rem">SAVE €50/mo</span></div>
+          </div>
+          <p class="p-desc" style="max-width:500px">Your website brings them in. Your reviews build their trust. Your AI video makes them choose you. The complete online growth system for Irish businesses.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2rem">
+            <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:1rem;text-align:center">
+              <div style="font-size:1.3rem;margin-bottom:.3rem">🌐</div>
+              <div style="font-size:.78rem;font-weight:600;color:white">Website</div>
+              <div style="font-size:.72rem;color:rgba(255,255,255,.6)">€500 once</div>
+            </div>
+            <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:1rem;text-align:center">
+              <div style="font-size:1.3rem;margin-bottom:.3rem">⭐</div>
+              <div style="font-size:.78rem;font-weight:600;color:white">Reviews</div>
+              <div style="font-size:.72rem;color:rgba(255,255,255,.6)">€199/mo</div>
+            </div>
+            <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:1rem;text-align:center">
+              <div style="font-size:1.3rem;margin-bottom:.3rem">🎬</div>
+              <div style="font-size:.78rem;font-weight:600;color:white">AI Video</div>
+              <div style="font-size:.72rem;color:rgba(255,255,255,.6)">€300/mo</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap">
+            <button class="p-btn" style="flex:1;background:white;color:var(--accent);border-color:white;font-weight:700" onclick="wa()">💬 WhatsApp to Bundle</button>
+            <button class="p-btn" style="flex:1" onclick="go('contact')">Get a Free Quote</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="pricing-note r" style="margin-top:2rem">All monthly plans are rolling — <strong>no long-term contracts, cancel any time.</strong> ☘️</p>
+    </div>
+  </div>
+
+  <!-- WHY / TRUST -->
+  <div class="trust-section">
+    <div class="trust-grid">
+      <div class="r">
+        <div class="sec-tag">Why NextGen Reviews</div>
+        <div class="sec-title">We work with<br><em>Irish businesses</em><br>every day</div>
+        <div class="trust-points">
+          <div class="tp"><div class="tp-icon">🇮🇪</div><div><h4>Built for Irish Businesses</h4><p>We understand the Irish market — what local customers expect, how they search, and what builds trust with them.</p></div></div>
+          <div class="tp"><div class="tp-icon">⚡</div><div><h4>Quick &amp; Reliable</h4><p>New website in days, not weeks. AI videos delivered on time, every time. You'll always know what's happening.</p></div></div>
+          <div class="tp"><div class="tp-icon">💬</div><div><h4>Real Support on WhatsApp</h4><p>Message us on 089 452 7903 any time. You'll get a real response from a real person — fast.</p></div></div>
+          <div class="tp"><div class="tp-icon">📊</div><div><h4>Measurable Results</h4><p>We report on what matters — traffic, calls, bookings. No fluff, just numbers that show growth.</p></div></div>
+        </div>
+      </div>
+      <div class="review-cards r">
+        <div class="rc">
+          <div class="rc-stars">★★★★★</div>
+          <p class="rc-text">"Our new website brought in more enquiries in one month than we'd had all year. The team are brilliant to work with."</p>
+          <div class="rc-author">Sinéad M. — Dublin</div>
+        </div>
+        <div class="rc">
+          <div class="rc-stars">★★★★★</div>
+          <p class="rc-text">"The AI video they made for our café looked like a proper cinema ad. Customers keep asking where we got it done. Absolutely class."</p>
+          <div class="rc-author">Ciarán P. — Cork</div>
+        </div>
+        <div class="rc">
+          <div class="rc-stars">★★★★★</div>
+          <p class="rc-text">"The Google review replies are so professional. Customers actually comment on how well we respond. Worth every cent."</p>
+          <div class="rc-author">Aoife O'B. — Galway</div>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;gap:.8rem;">
+          <button class="btn-primary" onclick="go('contact')" style="flex:1;justify-content:center">Get a Free Quote</button>
+          <button class="btn-wa" onclick="wa()" style="flex:1;justify-content:center">💬 WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-logo">NextGen <span>Reviews</span></div>
+    <ul class="ft-links">
+      <li><a onclick="scrollSec('sec-services')">Services</a></li>
+      <li><a onclick="scrollSec('pricing-bg')">Pricing</a></li>
+      <li><a onclick="go('contact')">Contact</a></li>
+      <li><a onclick="wa()">WhatsApp</a></li>
+    </ul>
+    <p>© 2026 NextGen Reviews · Made with ☘️ in Ireland</p>
+  </footer>
+
+</div><!-- /home -->
+
+<!-- ══════════ PAGE: CONTACT ══════════ -->
+<div class="page" id="pg-contact">
+
+  <div class="c-hero">
+    <div class="c-hero-inner">
+      <div>
+        <h2>Let's Talk About<br><em>Your Business</em></h2>
+        <p>No sales pressure, no jargon. Just a friendly chat about what you need and how we can help. We respond within 24 hours — usually much faster.</p>
+        <div class="c-hero-btns">
+          <button class="btn-wa" onclick="wa()">💬 WhatsApp — Preferred</button>
+          <button class="btn-ghost" onclick="email()">✉️ Email Us</button>
+        </div>
+      </div>
+      <div class="c-contacts">
+        <div class="c-card" onclick="wa()">
+          <span class="c-card-icon">💬</span>
+          <div><div class="c-card-lbl">WhatsApp <span class="wa-pill">Preferred</span></div><div class="c-card-val">089 452 7903</div></div>
+        </div>
+        <div class="c-card" onclick="email()">
+          <span class="c-card-icon">✉️</span>
+          <div><div class="c-card-lbl">Email</div><div class="c-card-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3a575f48555414485f4c535f4d7a5d575b535614595557">[email&#160;protected]</a></div></div>
+        </div>
+        <div class="c-card" style="cursor:default;">
+          <span class="c-card-icon">📍</span>
+          <div><div class="c-card-lbl">Location</div><div class="c-card-val">Ireland — Nationwide</div></div>
+        </div>
+        <div class="c-card" style="cursor:default;">
+          <span class="c-card-icon">⏱️</span>
+          <div><div class="c-card-lbl">Response Time</div><div class="c-card-val">Within 24 hours</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-body">
+    <div class="c-body-grid">
+
+      <!-- Left: FAQ -->
+      <div>
+        <div class="sec-tag">Common Questions</div>
+        <div class="sec-title" style="margin-bottom:0">Quick <em>Answers</em></div>
+        <div class="faq-block">
+          <div class="fq" onclick="faq(this)">
+            <div class="fq-top"><span class="fq-q">How fast can you build my website?</span><span class="fq-arr">▼</span></div>
+            <div class="fq-a">Most websites are live within 5–7 business days. Complex builds may take up to 2 weeks. We'll always give you a clear timeline before we start.</div>
+          </div>
+          <div class="fq" onclick="faq(this)">
+            <div class="fq-top"><span class="fq-q">Is there a long-term contract?</span><span class="fq-arr">▼</span></div>
+            <div class="fq-a">No long contracts — ever. All our plans are monthly rolling. We keep clients because of results, not contracts.</div>
+          </div>
+          <div class="fq" onclick="faq(this)">
+            <div class="fq-top"><span class="fq-q">Can I choose just one service?</span><span class="fq-arr">▼</span></div>
+            <div class="fq-a">Absolutely. You can start with one service and add more as you grow. Many clients begin with a website or reviews and expand from there.</div>
+          </div>
+          <div class="fq" onclick="faq(this)">
+            <div class="fq-top"><span class="fq-q">What types of businesses do you work with?</span><span class="fq-arr">▼</span></div>
+            <div class="fq-a">Cafés, restaurants, salons, trades, retail, clinics — if you're an Irish business, we can help. We've worked across almost every industry.</div>
+          </div>
+          <div class="fq" onclick="faq(this)">
+            <div class="fq-top"><span class="fq-q">What if I'm not sure what I need?</span><span class="fq-arr">▼</span></div>
+            <div class="fq-a">That's totally fine — most people aren't! Just WhatsApp us or fill in the form and we'll ask a few simple questions to figure out what will work best for you.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div>
+        <div class="form-card">
+          <div class="form-card-title">Send a Message</div>
+          <p class="form-card-sub">We'll get back to you within 24 hours. ☘️</p>
+          <div id="the-form">
+            <div class="frow">
+              <div class="fg"><label>First Name</label><input type="text" id="fn" placeholder="Seán"/></div>
+              <div class="fg"><label>Last Name</label><input type="text" id="ln" placeholder="Murphy"/></div>
+            </div>
+            <div class="fg"><label>Email Address</label><input type="email" id="em" placeholder="you@example.ie"/></div>
+            <div class="fg"><label>Phone / WhatsApp (optional)</label><input type="tel" id="ph" placeholder="08X XXX XXXX"/></div>
+            <div class="fg">
+              <label>I'm Interested In</label>
+              <select id="svc">
+                <option value="">— Select a service —</option>
+                <option>Website Design</option>
+                <option>Google Review Replies</option>
+                <option>AI Video Production</option>
+                <option>Full Package (All 3 Services)</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Budget / Plan</label>
+              <select id="plan">
+                <option value="">— Select a plan —</option>
+                <option>Website Design — €500 one-time</option>
+                <option>Google Review Replies — €199/mo</option>
+                <option>AI Video Production — €300/mo</option>
+                <option>Full Package (All 3 Services)</option>
+                <option>Custom / Not sure</option>
+              </select>
+            </div>
+            <div class="fg"><label>Tell Us About Your Business</label><textarea id="msg" placeholder="What do you do, who are your customers, what are you hoping to achieve?"></textarea></div>
+            <button class="btn-send" onclick="send()">Send Message →</button>
+          </div>
+          <div class="form-ok" id="form-ok">
+            <div class="ok-icon">☘️</div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for getting in touch. We'll reply within 24 hours.<br>For a faster response, WhatsApp us directly.</p>
+            <button class="btn-wa-full" onclick="wa()">💬 WhatsApp Now — 089 452 7903</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-logo">NextGen <span>Reviews</span></div>
+    <ul class="ft-links">
+      <li><a onclick="go('home')">Home</a></li>
+      <li><a onclick="go('home');setTimeout(()=>scrollSec('sec-services'),120)">Services</a></li>
+      <li><a onclick="go('home');setTimeout(()=>scrollSec('pricing-bg'),120)">Pricing</a></li>
+    </ul>
+    <p>© 2026 NextGen Reviews · Made with ☘️ in Ireland</p>
+  </footer>
+
+</div><!-- /contact -->
+
+<script>
+function go(p){
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('show'));
+  document.getElementById('pg-'+p).classList.add('show');
+  document.getElementById('nl-home').classList.toggle('active',p==='home');
+  document.getElementById('nl-contact').classList.toggle('active',p==='contact');
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(reveal,100);
+}
+function scrollSec(id){
+  const el=document.getElementById(id)||document.querySelector('.'+id);
+  if(el){el.scrollIntoView({behavior:'smooth'});setTimeout(reveal,400);}
+}
+function wa(){window.open('https://wa.me/353894527903?text=Hi%20NextGen%20Reviews%2C%20I%27d%20like%20to%20find%20out%20more!','_blank')}
+function email(){window.location.href='mailto:meron.review@gmail.com?subject=Enquiry%20from%20NextGen%20Reviews%20Website'}
+function faq(el){
+  const was=el.classList.contains('open');
+  document.querySelectorAll('.fq').forEach(f=>f.classList.remove('open'));
+  if(!was) el.classList.add('open');
+}
+function send(){
+  const n=document.getElementById('fn').value.trim();
+  const e=document.getElementById('em').value.trim();
+  if(!n){alert('Please enter your name');return}
+  if(!e||!e.includes('@')){alert('Please enter a valid email');return}
+  document.getElementById('the-form').style.display='none';
+  document.getElementById('form-ok').style.display='block';
+}
+function reveal(){
+  const els=document.querySelectorAll('.page.show .r');
+  const ob=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('v'),i*80);
+        ob.unobserve(e.target);
+      }
+    });
+  },{threshold:.08});
+  els.forEach(el=>{if(!el.classList.contains('v'))ob.observe(el)});
+}
+reveal();
+</script>
+</body>
+</html>
